@@ -1,5 +1,5 @@
 function calcularNivel(vitorias, derrotas) {
-  const saldo = vitorias - derrotas;
+  const saldoVitorias = vitorias - derrotas;
   let nivel;
 
   if (vitorias < 10) {
@@ -18,11 +18,12 @@ function calcularNivel(vitorias, derrotas) {
     nivel = "Imortal";
   }
 
-  return `O Herói tem saldo de ${saldo} e está no nível de ${nivel}`;
+  return { saldoVitorias, nivel };
 }
 
-// Exemplo de uso da função
-const vitorias = 60;
-const derrotas = 20;
+const vitorias = parseInt(prompt("Digite a quantidade de vitórias:"));
+const derrotas = parseInt(prompt("Digite a quantidade de derrotas:"));
+
 const resultado = calcularNivel(vitorias, derrotas);
-console.log(resultado);
+const mensagem = `O Herói tem um saldo de ${resultado.saldoVitorias} está no nível de ${resultado.nivel}`;
+alert(mensagem);
